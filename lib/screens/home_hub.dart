@@ -45,11 +45,6 @@ class HomeHub extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: AppTheme.accentTeal,
-        child: const Icon(Icons.add, color: Colors.black),
-      ),
     );
   }
 

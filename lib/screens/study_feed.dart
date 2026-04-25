@@ -19,17 +19,7 @@ class StudyFeed extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            _buildOffersList(),
-            _buildRequestsList(),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: AppTheme.accentTeal,
-          child: const Icon(Icons.add, color: Colors.black),
-        ),
+        body: TabBarView(children: [_buildOffersList(), _buildRequestsList()]),
       ),
     );
   }
@@ -40,19 +30,22 @@ class StudyFeed extends StatelessWidget {
       children: const [
         StudyOfferCard(
           title: 'Advanced Algorithms',
-          description: 'Deep dive into Dijkstra\'s and A* pathfinding. Helping students prepare for the midterms.',
+          description:
+              'Deep dive into Dijkstra\'s and A* pathfinding. Helping students prepare for the midterms.',
           courseTags: ['CS402', 'Algorithms'],
           authorName: 'Alex O.',
         ),
         StudyOfferCard(
           title: 'Spatial Design',
-          description: 'Offering feedback on 2nd-year architecture portfolios. Focus on site analysis visuals.',
+          description:
+              'Offering feedback on 2nd-year architecture portfolios. Focus on site analysis visuals.',
           courseTags: ['ARCH201', 'Design'],
           authorName: 'Sarah M.',
         ),
         StudyOfferCard(
           title: 'Calculus II',
-          description: 'Step-by-step walkthrough of integration by parts and trigonometric substitution.',
+          description:
+              'Step-by-step walkthrough of integration by parts and trigonometric substitution.',
           courseTags: ['MATH201'],
           authorName: 'David K.',
         ),
@@ -62,7 +55,10 @@ class StudyFeed extends StatelessWidget {
 
   Widget _buildRequestsList() {
     return const Center(
-      child: Text('No requests currently.', style: TextStyle(color: Colors.grey)),
+      child: Text(
+        'No requests currently.',
+        style: TextStyle(color: Colors.grey),
+      ),
     );
   }
 }

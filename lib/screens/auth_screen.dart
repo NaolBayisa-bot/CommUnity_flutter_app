@@ -20,9 +20,6 @@ class _AuthScreenState extends State<AuthScreen> {
     super.dispose();
   }
 
-
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,7 +115,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   },
                   child: const Text('Sign in '),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 7),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
