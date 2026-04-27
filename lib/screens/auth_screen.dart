@@ -13,6 +13,7 @@ class _AuthScreenState extends State<AuthScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
+  bool obscureData = true;
   @override
   void dispose() {
     _emailController.dispose();
@@ -76,11 +77,19 @@ class _AuthScreenState extends State<AuthScreen> {
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _passController,
-                  obscureText: true,
+                  obscureText: obscureData,
                   decoration: InputDecoration(
                     labelText: 'Password',
                     hintText: '',
                     prefixIcon: Icon(Icons.lock_outline),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          obscureData = !obscureData;
+                        });
+                      },
+                      icon: Icon(Icons.visibility_off_outlined),
+                    ),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {

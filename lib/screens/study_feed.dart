@@ -54,10 +54,13 @@ class StudyFeed extends StatelessWidget {
   }
 
   Widget _buildRequestsList() {
-    return const Center(
-      child: Text(
-        'No requests currently.',
-        style: TextStyle(color: Colors.grey),
+    return Scaffold(
+      body: const Center(child: Text('No requests currently')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('gatcha');
+        },
+        child: Icon(Icons.add, size: 40),
       ),
     );
   }

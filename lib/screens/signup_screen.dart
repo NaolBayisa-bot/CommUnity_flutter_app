@@ -10,14 +10,23 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  bool obscureData = true;
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
+
+  @override
+  void dispose() {
+    // 3. Always dispose of controllers to prevent memory leaks
+    _nameController.dispose();
+    _emailController.dispose();
+    _passController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
-    final TextEditingController _nameController = TextEditingController();
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _passController = TextEditingController();
-    bool obscureData = true;
-
     return Scaffold(
       body: SafeArea(
         // 1. LayoutBuilder gets the constraints of the screen
@@ -25,7 +34,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
           builder: (context, constraints) {
             final viewInsets = MediaQuery.of(context).viewInsets.bottom;
             final keyboardOpen = viewInsets > 0;
-
             return SingleChildScrollView(
               padding: EdgeInsets.only(
                 top: 24,
@@ -115,7 +123,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             suffixIcon: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  obscureData = false;
+                                  obscureData = !obscureData;
                                 });
                               },
                               icon: Icon(Icons.visibility_off_outlined),
